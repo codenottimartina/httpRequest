@@ -32,7 +32,8 @@ export class PostsService {
       'https://progettocorsoangular2-97b9a-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
       {
         headers: new HttpHeaders({ 'Custom-Header' : 'Hello' }),
-        params: searchParams
+        params: searchParams,
+        responseType: 'json'
       }
     )
     .pipe(
@@ -55,7 +56,8 @@ export class PostsService {
     return this.http.delete(
         'https://progettocorsoangular2-97b9a-default-rtdb.europe-west1.firebasedatabase.app/',
         {
-            observe: 'events'
+            observe: 'events',
+            responseType: 'text'
         }
     ).pipe(tap(event => {
         console.log(event);
